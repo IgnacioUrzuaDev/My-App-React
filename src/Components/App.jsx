@@ -5,11 +5,10 @@ import ItemListContainer from './ItemListContainer/ItemListContainer';
 
 const App = () => {
 
-  const [counter, setCounter] = useState(0);
   return (
     <>
       <Navbar/>
-      <ItemListContainer greeting={'Greetings, earthlings'}/>
+      <ItemListContainer greeting={'Wellcome to my e-commerce'}/>
     </>
   );
 }
