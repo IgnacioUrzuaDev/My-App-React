@@ -23,18 +23,16 @@ const ItemCount = ({stock, onAdd}) => {
     return (
         <>
             <div className='CounterCard'>
-                <h1>Counter</h1>
-                <p>Stock: {stock} </p>
-                            
-                <div>
-                   <button className='btn' onClick={substract}> - </button>
-                   <> {count} </>
-                   <button className='btn' onClick={add}> + </button>
-                </div>
-                <div>
-                <button className='btn' onClick={reset}> Clear cart </button>
-                   <button className='btn' onClick={() => onAdd(count)}> Add to cart </button>
-                </div>
+                <p>Stock: {stock} </p>            
+                    <div>
+                    <button className='btn' onClick={substract}> - </button>
+                    <> {count} </>
+                    <button className='btn' onClick={add}> + </button>
+                    </div>
+                    <div>
+                    <button className='btn' onClick={reset}> Clear cart </button>
+                    <button className='btn' onClick={() => onAdd(count)}> Add to cart </button>
+                    </div>
             </div>
         </>
     );

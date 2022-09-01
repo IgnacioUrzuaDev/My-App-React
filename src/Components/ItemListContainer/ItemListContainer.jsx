@@ -1,16 +1,30 @@
-import React from 'react';
-import ItemCount from '../Counter/ItemCount';
+import  Products  from "./Products";
+import { useEffect, useState } from "react";
+import  ItemList  from "../ItemListContainer/ItemList";
 
-const ItemListContainer = ({greeting}) => {
-    function onAdd(count){
-        console.log ('Se han agregado ${count} productos al carrito')
-    }
-    return (
-        <>
-           <h1>{greeting}</h1> 
-           <ItemCount stock={10} onAdd={onAdd}/>
-        </>
-    );
+function consultPromise(confirm) {
+    return new Promise((res, rej)=>{
+        if(confirm) {
+            res(Products)
+        } else {
+            rej("reject")
+        }
+    })
 }
+const ItemListContainer = () => {
+   const [Products, setProducts] = useState([]);
+   useEffect(() => {
+        consultPromise(true)
+        .then(Products =>{
+            setProducts(Products)
+        })
+        .catch(error => {
+            console.error(error)
+        })
+    return (
+        <> 
+           <ItemList data={data} />
+        </>
+    ));
 
-export default ItemListContainer;
+export default ItemListContainer
