@@ -1,30 +1,23 @@
-import  Products  from "./Products";
-import { useEffect, useState } from "react";
-import  ItemList  from "../ItemListContainer/ItemList";
+import  React, { useEffect, useState } from "react";
+import  Products  from "../../Products/Products";
+import  ItemList  from "../ItemList/ItemList";
 
-function consultPromise(confirm) {
-    return new Promise((res, rej)=>{
-        if(confirm) {
-            res(Products)
-        } else {
-            rej("reject")
-        }
+const ItemListContainer = () =>{
+    const[productList, setProductList] = useState([])
+
+    const getProducts = () => new Promise((resolve, reject) => {
+        setTimeout(()=> resolve(Products), 2000)
     })
-}
-const ItemListContainer = () => {
-   const [Products, setProducts] = useState([]);
-   useEffect(() => {
-        consultPromise(true)
-        .then(Products =>{
-            setProducts(Products)
-        })
-        .catch(error => {
-            console.error(error)
-        })
-    return (
-        <> 
-           <ItemList data={data} />
-        </>
-    ));
 
+    useEffect(()=>{
+        getProducts()
+        .then(Products => setProductList(Products))
+        .catch(error => console.error(error))    
+        
+    },[])
+
+    return (
+        <ItemList productList={productList} />
+    )
+}
 export default ItemListContainer

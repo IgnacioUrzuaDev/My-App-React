@@ -1,11 +1,23 @@
 .CounterCard{
-    background-color: rgb(66, 47, 152);
-    padding: 20px;
-    margin-inline: 50px;
+    background-color: blueviolet;
+    padding: 10px;
+    border: 1px solid rgb(30, 194, 189);
+    display: flex;
+    
 }
 
 .btn {
-    margin-right: 20px;
-    margin-left: 20px;
+    margin-top: 10px;
     margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    background-color: rgb(127, 138, 255);
+    height: 2rem;
+    color: rgb(0, 0, 0);
+
+}
+
+.btn:hover {
+    background-color: aqua;
+    color: rgb(0, 0, 0);
 }

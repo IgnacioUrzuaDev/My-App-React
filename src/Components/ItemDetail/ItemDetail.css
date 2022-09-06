@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.detail-card {
+    display: flex;
+    width: 100%;
+
+}
+
+.leftside-detail-card {
+    width: 60%; 
+}
+
+.right-detail-card {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
