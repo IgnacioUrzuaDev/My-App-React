@@ -4,10 +4,12 @@ import './App.css';
 import Navbar from './Components/Navbar/Navbar';
 import ItemListContainer from './Components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './Components/ItemDetailContainer/ItemDetailContainer'
+import CartContext  from '../src/Context/CartContext';
 
 function App() {
   return (
     <BrowserRouter>
+    <CartContext>
       <div className='App'>
         <Navbar/>
         <Routes>
@@ -17,6 +19,7 @@ function App() {
           <Route path= "*" element={<h1>Error 404</h1>}></Route>
         </Routes>
       </div>
+    </CartContext>
     </BrowserRouter>  
   );
 }
