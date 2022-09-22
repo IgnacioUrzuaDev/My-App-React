@@ -1,6 +1,6 @@
 import React from 'react';
 import Form from '../Fragments/Form'
-import CartWidget from '../CartWidget/CartWidget';
+import CartWidget from '../Cart/CartWidget';
 import { Link } from 'react-router-dom'
 function Navbar() {
   return (
