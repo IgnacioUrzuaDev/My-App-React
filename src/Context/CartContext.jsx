@@ -5,12 +5,12 @@ export const CartContext = createContext()
 export const useCartContext = () => useContext(CartContext)
 
 const CartContextProvider = ({ children }) => {
-    const [cart, setCart] = useState([{id, title, stock}])
+    const [cart, setCart] = useState([])
 
     const addItem = (id, price, quantity, stock) => {
         const isInCart = cart.find(product => product.id === id)
         if (isInCart) {
-            isInCart.quantity = isInCart.quantity + quantity
+            isInCart.quantity = isInCart.quantity + quantity;
             setCart([...cart])
         }else {
             setCart([...cart, {id: id, price: price, quantity: quantity, stock : stock }])
@@ -40,4 +40,4 @@ const CartContextProvider = ({ children }) => {
     return <CartContext.Provider value={{ cart, addItem, removeItem, clear, totalQuantity, totalPrice }}>{ children }</CartContext.Provider>;
 };
 
-export default { CartContext, CartContextProvider, useCartContext };
+export default CartContextProvider;
