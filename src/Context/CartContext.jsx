@@ -19,7 +19,7 @@ const CartContextProvider = ({ children }) => {
 
     const removeItem = (itemId, price) => {
        const filteredArray = cart.filter(
-       (item) => item.id !== itemId || item.price !== price
+       (item) => item.id !== itemId || item.price!== price
        )
        setCart(filteredArray)
     }

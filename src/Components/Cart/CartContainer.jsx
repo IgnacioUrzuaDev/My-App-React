@@ -1,31 +1,40 @@
+import React, { useContext } from "react"
 import { useCartContext } from "../../Context/CartContext"
 import {Link} from 'react-router-dom'
 import ItemCart from "./ItemCart"
 
+const CartContainer = () =>{
 
-function CartContainer() {
-    const {cart, clear, totalPrice} = useCartContext()
-    const key = (id, quantity) => {
-        return id+quantity
-    }
+    const { cart, clear, getTotal } = useContext(useCartContext)
+
     return (
-    <>  
-        {cart.length ? 
-        <div>
-            {
-            cart.map(item => 
-            <ItemCart id={item.id} key={key(item.id)} quantity={item.quantity} price={item.price}/>)}
-            <button onClick={() => clear()}> clear cart </button>
-            <h1>Total: {totalPrice()}</h1>
-        </div>
-        :
-        <div>
-            <h1> Your cart is empty</h1>
-            <Link to="/">
-                <button> Products </button>
-            </Link>
-        </div>}
-    </>
+        <>
+        <h1>Your Cart</h1>
+        <hr />
+        {cart.length !== 0 ?
+            (
+                <div>
+                    <div>
+                        {cart.map((e) => <ItemCart key={e.id} item={e} />)}
+                        <br />
+                        {`Total:  $ ${getTotal()}`}
+                        <br />
+                        <button onClick={clear}>Clear Cart</button>
+                        <br />
+                        <br />
+                        <Link to='/checkout'>
+                            <button> Checkout </button>
+                        </Link>
+                    </div>
+                </div>
+            ) : (
+                <div>
+                    <h3>Your Cart is empty</h3>
+                    <Link to='/'>Keep shopping</Link>
+                </div>
+            )
+        }
+        </>
     )
 }
 
